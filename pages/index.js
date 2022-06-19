@@ -3,6 +3,8 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 const itemVariants = {
   init: (i) => ({
     x: -20,
@@ -131,8 +133,6 @@ const Item = ({ text, i }) => {
   );
 };
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 const ListContaienr = styled.ul`
   margin: 0;
   padding: 0;
@@ -161,9 +161,8 @@ const AList = () => {
 
 export default function App() {
   return (
-    <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
+    <div className="App" style={{ margin: '12px' }}>
+      <h2>Framer Motion List Examples</h2>
       <AList />
     </div>
   );
